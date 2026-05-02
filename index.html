@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="ambient-light"></div>
+
+  <!-- Ambient particle canvas -->
+  <canvas id="particles"></canvas>
+
+  <!-- Duck VFX canvas — shown only on finale -->
+  <canvas id="duckCanvas"></canvas>
+
+  <!-- 5-blob breathing background -->
+  <div class="blob-container">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+    <div class="blob blob-5"></div>
+  </div>
+
+  <!-- Scene wrapper -->
+  <div id="sceneWrapper">
+
+    <!-- SCENE 0: Dark Intro -->
+    <div class="scene active" id="scene-0" data-emotion="dark">
+      <div class="scene-inner">
+        <p class="line serif large">For the girl</p>
+        <p class="line serif large">who lives in the</p>
+        <p class="line serif large highlight">positivity bubble</p>
+        <div class="delay-block"></div>
+        <p class="line sans small">There's something I want you to know.</p>
+      </div>
+    </div>
+
+    <!-- SCENE 1: Lunch memory -->
+    <div class="scene" id="scene-1" data-emotion="warm">
+      <div class="scene-inner">
+        <p class="line serif medium">Lunch used to be</p>
+        <p class="line serif large highlight">the best part of my day.</p>
+        <p class="line sans small">Not because of the food…</p>
+        <p class="line serif medium">but because of <em>you.</em></p>
+      </div>
+    </div>
+
+    <!-- SCENE 2: The place -->
+    <div class="scene" id="scene-2" data-emotion="warm">
+      <div class="scene-inner">
+        <p class="line sans small">Sitting there, talking to you,</p>
+        <p class="line sans small">the view with those trees…</p>
+        <p class="line serif medium">it just felt</p>
+        <p class="line serif large glow-word">peaceful.</p>
+      </div>
+    </div>
+
+    <!-- SCENE 3: Twenty days -->
+    <div class="scene" id="scene-3" data-emotion="warm">
+      <div class="scene-inner">
+        <p class="line sans small">Those conversations we had —</p>
+        <p class="line sans small">they never felt forced, never awkward.</p>
+        <p class="line serif medium">It was like we had known each other</p>
+        <p class="line serif medium">for a long time,</p>
+        <p class="line sans small">even though it had only been twenty days.</p>
+        <p class="line serif large highlight">And honestly…</p>
+        <p class="line serif medium">those twenty days felt like much more.</p>
+      </div>
+    </div>
+
+    <!-- SCENE 4: That day -->
+    <div class="scene" id="scene-4" data-emotion="dim">
+      <div class="scene-inner">
+        <p class="line sans small">There's also something I need to say.</p>
+        <p class="line serif medium">That day…</p>
+        <p class="line sans small">I came to office already upset</p>
+        <p class="line sans small">because of something at home.</p>
+        <p class="line serif medium">I didn't greet you.</p>
+        <p class="line serif medium">I didn't talk.</p>
+        <p class="line serif medium">I didn't eat.</p>
+      </div>
+    </div>
+
+    <!-- SCENE 5: She came anyway -->
+    <div class="scene" id="scene-5" data-emotion="warm">
+      <div class="scene-inner">
+        <p class="line sans small">But you still came to me.</p>
+        <p class="line serif medium">You pulled me to our place,</p>
+        <p class="line sans small">sat with me,</p>
+        <p class="line serif large highlight">and kept trying to make me smile.</p>
+        <p class="line sans small">Now when I think about it…</p>
+        <p class="line serif medium">I feel like I wasted that entire afternoon.</p>
+        <p class="line sans small">I apologize for how I behaved that day.</p>
+        <p class="line sans small">It won't happen again.</p>
+      </div>
+    </div>
+
+    <!-- SCENE 6: What she introduced -->
+    <div class="scene" id="scene-6" data-emotion="soft">
+      <div class="scene-inner">
+        <p class="line serif medium">You introduced me to a lot of things.</p>
+        <p class="line sans small">To Vampire Diaries</p>
+        <p class="line sans small italic-note">(and yes… I will never ask for spoilers again,</p>
+        <p class="line sans small italic-note">you did warn me 😅)</p>
+        <p class="line sans small">To writing positive notes.</p>
+        <p class="line serif medium">But more than that —</p>
+        <p class="line serif medium">a different way of thinking.</p>
+        <p class="line serif large glow-word">Calmer. More positive.</p>
+      </div>
+    </div>
+
+    <!-- SCENE 7: The pen -->
+    <div class="scene" id="scene-7" data-emotion="gold">
+      <div class="scene-inner">
+        <p class="line serif large highlight">And then… the pen.</p>
+        <p class="line sans small">You gave me something that was so personal to you.</p>
+        <p class="line sans small">Something you didn't even let your dad touch 😂</p>
+        <p class="line serif medium">I didn't expect that at all.</p>
+        <p class="line serif medium">But it meant a lot to me.</p>
+      </div>
+    </div>
+
+    <!-- SCENE 8: The gift explanation -->
+    <div class="scene" id="scene-8" data-emotion="soft">
+      <div class="scene-inner">
+        <p class="line sans small">I didn't really have something like that to give you back.</p>
+        <p class="line serif medium">So I'm giving you something</p>
+        <p class="line serif large highlight">that is a part of me.</p>
+        <p class="line sans small">It's not just a file.</p>
+        <p class="line serif medium">It's something that represents me.</p>
+      </div>
+    </div>
+
+    <!-- SCENE 9: I know you -->
+    <div class="scene" id="scene-9" data-emotion="warm">
+      <div class="scene-inner">
+        <p class="line serif large">I know you.</p>
+        <p class="line sans small">I know you don't like using someone else's work.</p>
+        <p class="line sans small">You want to build things on your own.</p>
+        <p class="line sans small">You want to achieve something by yourself.</p>
+        <p class="line serif medium">And I respect that.</p>
+      </div>
+    </div>
+
+    <!-- SCENE 10: Holding your hand -->
+    <div class="scene" id="scene-10" data-emotion="warm">
+      <div class="scene-inner">
+        <p class="line sans small">But this… isn't just someone else's code.</p>
+        <p class="line serif medium">Think of it like this —</p>
+        <p class="line serif medium">I'm just holding your hand</p>
+        <p class="line serif large highlight">and helping you a little.</p>
+        <p class="line serif medium">You wouldn't say no to that, right?</p>
+      </div>
+    </div>
+
+    <!-- SCENE 11: Break my heart — SHATTER -->
+    <div class="scene" id="scene-11" data-emotion="dim">
+      <div class="scene-inner">
+        <p class="line sans small">And honestly…</p>
+        <p class="line sans small">if you don't use it,</p>
+        <div class="shatter-container delay-block-2">
+          <p class="line serif large shatter-text" id="shatterText">it might break my heart.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENE 12: Only to you -->
+    <div class="scene" id="scene-12" data-emotion="gold">
+      <div class="scene-inner">
+        <p class="line sans small">Because just like how you gave me your pen —</p>
+        <p class="line sans small">something personal,</p>
+        <p class="line sans small">something you never let anyone use —</p>
+        <p class="line serif large highlight">I'm giving this only to you.</p>
+        <p class="line serif medium">Not to anyone else.</p>
+      </div>
+    </div>
+
+    <!-- SCENE 13: Still thinking -->
+    <div class="scene" id="scene-13" data-emotion="warm">
+      <div class="scene-inner">
+        <p class="line sans small">Even now,</p>
+        <p class="line serif medium">I still catch myself thinking</p>
+        <p class="line sans small">about that time we used to sit and talk.</p>
+        <p class="line serif large highlight">You became a really good friend</p>
+        <p class="line serif medium">in a very short time.</p>
+        <p class="line serif medium">And I'm really glad you did.</p>
+      </div>
+    </div>
+
+    <!-- SCENE 14: Duck finale -->
+    <div class="scene" id="scene-14" data-emotion="finale">
+      <div class="scene-inner finale-inner">
+        <p class="line serif large">Keep this with you.</p>
+        <p class="line serif large highlight">This one's just yours 🤍</p>
+        <p id="duckHint">click to open your gift</p>
+      </div>
+    </div>
+
+  </div><!-- /sceneWrapper -->
+
+  <!-- Navigation hint -->
+  <div class="nav-hint" id="navHint">
+    <span>scroll to continue</span>
+    <div class="nav-dots" id="navDots"></div>
+  </div>
+
+  <!-- Bloom particle overlay -->
+  <div class="bloom-overlay" id="bloomOverlay"></div>
+
+  <!-- Load engines in order — each is self-contained -->
+  <script src="cursor.js"></script>
+  <script src="particles.js"></script>
+  <script src="cinema.js"></script>
+  <script src="shatter.js"></script>
+  <script src="duck-vfx.js"></script>
+  <script src="three-layer.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
